@@ -2,6 +2,17 @@
 # Enhancers annotation of distal intergenic peaks #
 ###################################################
 
+# LOAD DATA: source nf-core pipeline (MACS2 PEAKS ANNOTATION FILES)
+
+## Consensus peaks across replicates: Absolute Path bed files
+XRCC4_CPT.peaks <- readPeakFile(
+  peakfile = "/mnt/beegfs/home/marsabbon/chip-seq/results_FDR_xrcc4_150/bwa/mergedLibrary/macs2/broadPeak/consensus/XRCC4/XRCC4.consensus_peaks.bed",
+  header=FALSE)
+TOP1cc.peaks <- readPeakFile(
+  peakfile = "/mnt/beegfs/home/marsabbon/chip-seq/results_baranello_broad_peak/bwa/mergedLibrary/macs2/broadPeak/consensus/TOP1/TOP1.consensus_peaks.bed",
+  header = FALSE)
+
+
 # Packages installation
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager", repos = "http://cran.us.r-project.org")
