@@ -2,6 +2,15 @@
 # Enhancers annotation of distal intergenic peaks #
 ###################################################
 
+# Packages installation
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager", repos = "http://cran.us.r-project.org")
+BiocManager::install("GenomicRanges")
+
+# Load libraries
+library(ChIPseeker)
+library(GenomicRanges)
+
 # LOAD DATA: source nf-core pipeline (MACS2 PEAKS ANNOTATION FILES)
 
 ## Consensus peaks across replicates: Absolute Path bed files
@@ -11,14 +20,6 @@ XRCC4_CPT.peaks <- readPeakFile(
 TOP1cc.peaks <- readPeakFile(
   peakfile = "/mnt/beegfs/home/marsabbon/chip-seq/results_baranello_broad_peak/bwa/mergedLibrary/macs2/broadPeak/consensus/TOP1/TOP1.consensus_peaks.bed",
   header = FALSE)
-
-
-# Packages installation
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager", repos = "http://cran.us.r-project.org")
-BiocManager::install("GenomicRanges")
-
-library(GenomicRanges)
 
 
 ## Consensus peaks across replicates variables: transformation into dataframe
