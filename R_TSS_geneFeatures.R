@@ -220,7 +220,7 @@ upsetplot(TOP1cc.peakAnno)
 
 plotPeakProf2(peak = c(TOP1cc_REP1.peaks,TOP1cc_REP2.peaks), upstream = rel(0.2), downstream = rel(0.2),
               conf = 0.95, by = "gene", type = "body",
-              TxDb = txdb, facet = "row", nbin = 800)
+              TxDb = txdb, facet = "row", nbin = 800) + ylim(c(0,0.005))
 
 # TOP1vsXRCC4: graphical comparison
 
