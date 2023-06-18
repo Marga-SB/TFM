@@ -4,6 +4,22 @@
 # and Gene Ontology Enrichment Analysis                                   #
 ###########################################################################
 
+# Packages installation
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager", repos = "http://cran.us.r-project.org")
+BiocManager::install("ChIPseeker")
+BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene", force = T)
+BiocManager::install("ChIPpeakAnno")
+BiocManager::install("clusterProfiler")
+BiocManager::install("org.Hs.eg.db")
+BiocManager::install("ReactomePA")
+BiocManager::install("ggplot2")
+BiocManager::install("GenomicRanges")
+
+# Load libraries for peaks annotation
+library(ChIPseeker)
+library(TxDb.Hsapiens.UCSC.hg38.knownGene)
+
 # LOAD DATA: source nf-core pipeline (MACS2 PEAKS ANNOTATION FILES)
 
 ## Consensus peaks across replicates: Absolute Path bed files
@@ -36,23 +52,6 @@ TOP1cc_REP2.peaks <- readPeakFile(
 #####################
 # Peaks annotation  #
 #####################
-
-# Packages installation
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager", repos = "http://cran.us.r-project.org")
-BiocManager::install("ChIPseeker")
-BiocManager::install("TxDb.Hsapiens.UCSC.hg38.knownGene", force = T)
-BiocManager::install("ChIPpeakAnno")
-BiocManager::install("clusterProfiler")
-BiocManager::install("org.Hs.eg.db")
-BiocManager::install("ReactomePA")
-BiocManager::install("ggplot2")
-BiocManager::install("GenomicRanges")
-
-# Load libraries for peaks annotation
-library(ChIPseeker)
-library(TxDb.Hsapiens.UCSC.hg38.knownGene)
-
 
 # Human Genome GRCh38 annotated genes
 txdb <- TxDb.Hsapiens.UCSC.hg38.knownGene
