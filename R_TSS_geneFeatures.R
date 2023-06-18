@@ -142,6 +142,7 @@ ol_TOP1_target_genes <-findOverlapsOfPeaks(TOP1cc_REP1_genes_target.gr,
                                maxgap=1000) 
 
 # Venn Diagram representation and statistical analysis of intersection significance
+library(ggplot2)
 result_XRCC4_target_genes <-makeVennDiagram(ol_XRCC4_target_genes, totalTest=20203 ,
                                category = c('REP1','REP2','REP3'),
                                height = 480 , 
